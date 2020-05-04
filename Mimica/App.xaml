@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Mimica.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button">
+                <Setter Property="BorderWidth" Value="2"/>
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="BackgroundColor" Value="white"/>
+            </Style>
+
+            <Style TargetType="StackLayout" x:Key="Cabecalho">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="Margin" Value="10"/>
+            </Style>
+            <Style TargetType="Label" x:Key="CabecalhoTitulo">
+                <Setter Property="TextColor" Value="#FFF"/>
+                <Setter Property="FontSize" Value="32"/>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

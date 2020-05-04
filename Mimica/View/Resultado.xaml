@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:cabecalho="clr-namespace:Mimica.View.Util"
+             mc:Ignorable="d"
+             x:Class="Mimica.View.Resultado">
+    <ContentPage.Content>
+        <StackLayout
+            BackgroundColor="LightPink"
+            >
+            <cabecalho:Cabecalho/>
+            <StackLayout
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand"
+                    >
+                <Frame
+                    BorderColor="Pink"
+                    CornerRadius="10"
+                    Margin="10"                
+                    >
+                    <FlexLayout 
+                        Direction="Column"
+                    >
+                        <Label 
+                            Text="Grupo - 1"
+                            FontSize="Title"
+                        />
+                        <Label 
+                            Text="{Binding Jogo.Grupo1.Nome}"
+                            FontSize="Title"
+                        />
+                        <Label 
+                            Text="{Binding Jogo.Grupo1.Pontuacao}"
+                            FontSize="50"
+                            HorizontalTextAlignment="Center"
+                        />
+                    </FlexLayout>
+                </Frame>
+                <Frame
+                    BorderColor="Pink"
+                    CornerRadius="10"
+                    Margin="10"
+                    >
+                    <FlexLayout 
+                        Direction="Column"
+                    >
+                        <Label 
+                            Text="Grupo - 2"
+                            FontSize="Title"
+                        />
+                        <Label 
+                            Text="{Binding Jogo.Grupo2.Nome}"
+                            FontSize="Title"
+                        />
+                        <Label 
+                            Text="{Binding Jogo.Grupo2.Pontuacao}"
+                            FontSize="50"
+                            HorizontalTextAlignment="Center"                            
+                        />
+                    </FlexLayout>
+                </Frame>
+                
+            </StackLayout>
+            <Button
+                Text="Jogar outra vez"
+                TextColor="LightPink"
+                BorderColor="LightPink"
+                Command="{Binding JogarNovamente}"
+            />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

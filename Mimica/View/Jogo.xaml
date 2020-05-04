@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:conv ="clr-namespace:Mimica.View.Util"
+             xmlns:cabecalho="clr-namespace:Mimica.View.Util"
+             mc:Ignorable="d"
+             x:Class="Mimica.View.Jogo">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <conv:LabelScoreConverter x:Key="convScore"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout
+            BackgroundColor="LightPink"            
+            >
+            <cabecalho:Cabecalho/>
+            <Frame
+                BorderColor="Pink"
+                CornerRadius="10"
+                Margin="10"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand"
+            >
+                <FlexLayout
+                    Direction="Column"
+                >
+                    <Label 
+                        Text="{Binding NumGrupo}"
+                    />
+                    <Label 
+                        Text="{Binding NomeGrupo}"
+                    />
+                    <Label 
+                        Text="{Binding PalavraPontuacao, Converter={StaticResource convScore}}"
+                        HorizontalTextAlignment="Center"
+                    />
+                    <Label 
+                        Text="{Binding Palavra}"
+                        FontAttributes="Bold"
+                        HorizontalTextAlignment="Center"
+                    />
+                    <Button 
+                        Text="Mostrar"                        
+                        TextColor="LightPink"                        
+                        BorderColor="LightPink"
+                        IsVisible="{Binding BtMostrar}"
+                        Command="{Binding Mostrar}"
+                        />
+                    <StackLayout
+                        IsVisible="{Binding ContainerContagem}"
+                    >
+                        <Label 
+                            Text="{Binding TextoContagem}" 
+                            FontSize="100"
+                            HorizontalTextAlignment="Center"
+                        />
+                        <Label 
+                            Text="seg"
+                            HorizontalTextAlignment="Center"
+                        />
+                        <Grid
+                            >
+                            <Button 
+                                Text="Acertou"
+                                TextColor="LightGreen"                        
+                                BorderColor="LightGreen"
+                                Grid.Column="0"
+                                Command="{Binding Acertou}"
+                            />
+                            <Button 
+                                Text="Errou"
+                                TextColor="LightSalmon"                        
+                                BorderColor="LightSalmon"
+                                Grid.Column="1"
+                                Command="{Binding Errou}"
+                            />
+                        </Grid>
+                    </StackLayout>
+
+                    <Button 
+                        Text="Iniciar"
+                        TextColor="LightPink"                        
+                        BorderColor="LightPink"
+                        Command="{Binding Iniciar}"
+                        IsVisible="{Binding ContainerIniciar}"                        
+                        />
+                </FlexLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

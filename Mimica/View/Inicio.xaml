@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:cabecalho="clr-namespace:Mimica.View.Util"
+             mc:Ignorable="d"
+             x:Class="Mimica.View.Inicio">
+    <ContentPage.Content>
+        <StackLayout
+            BackgroundColor="LightPink"
+            >
+            <cabecalho:Cabecalho/>
+            <Frame
+                BackgroundColor="White"
+                CornerRadius="10"
+                Margin="10"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand"
+            >
+                <FlexLayout
+                    Direction="Column"
+                >
+                    <Label Text="Grupo 1"
+                    />
+                    <Entry
+                        Placeholder="Grupo 1"
+                        Text="{Binding Jogo.Grupo1.Nome}"
+                    />
+                    <Label Text="Grupo 2"
+                    />
+                    <Entry
+                        Placeholder="Grupo 2" 
+                        Text="{Binding Jogo.Grupo2.Nome}"
+                    />
+                    <Label 
+                        Text="Nível"
+                    />
+                    <Picker 
+                        SelectedItem="{Binding Jogo.Nivel}"
+                        SelectedIndex="{Binding Jogo.NivelNumerico}"
+                    >
+                        <Picker.Items>
+                            <x:String>Aleatório</x:String>
+                            <x:String>Fácil</x:String>
+                            <x:String>Médio</x:String>
+                            <x:String>Difícil</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Label 
+                        Text="Tempo de cada palavra(seg)"
+                    />
+                    <Entry
+                        Text="{Binding Jogo.Tempo}"
+                        Placeholder="Tempo em segundos"
+                        Keyboard="Numeric"
+                    />
+                    <Label Text="Rodadas"/>
+                    <Entry
+                        Text="{Binding Jogo.Rodadas}"
+                        Placeholder="Número de jogadas" 
+                        Keyboard="Numeric"
+                    />
+                    <Button 
+                        Text="Iniciar"
+                        TextColor="LightPink"                        
+                        BorderColor="LightPink"
+                        Command="{Binding IniciarCommand}"
+                    />
+                    <Label Text="{Binding MsgErro}" TextColor="Red" HorizontalTextAlignment="Center" />
+                    
+                </FlexLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
